@@ -27,7 +27,7 @@ def find_parent(i3, window_id):
 def split_move_new(i3, e):
     parent = find_parent(i3, e.container.id)
     # First window on a workspace:
-    if parent is None or (parent.workspace() is parent and len(parent.nodes) == 1):
+    if parent is None or (parent.workspace() is parent and len(parent.nodes) == 1) or parent.layout == "tabbed":
         return
 
     tall = last_focus_con.rect.height > last_focus_con.rect.width
